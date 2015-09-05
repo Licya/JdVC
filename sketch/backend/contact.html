@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Backend Scketch</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../css/normalize.css" rel="stylesheet" type="text/css"/>
+        <link href="../../css/skeleton.css" rel="stylesheet" type="text/css"/>
+        <link href="../../css/backend.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="row">
+                    <div class="four columns">
+                        <h4>Espace Administration</h4>
+                    </div>
+                    <div class="eight columns text-center">
+                        <h5 class="u-pull-right"><a href="#">Deconnexion</a></h5>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="four columns">
+                    <div class="navigation">
+                        <ul>
+                            <li><a class="button u-full-width" href="backendScketch.html">Home</a></li>
+                            <li><a class="button u-full-width" href="person.html">Témoignages</a></li>
+                            <li><a class="button u-full-width" href="citizen.html">Citations</a></li>
+                            <li><a class="button u-full-width" href="book.html">Livre d'Or</a></li>
+                            <li><a class="button u-full-width" href="contact.html">Contact Webmaster</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="eight columns">
+                    <form>
+                        <fieldset>
+                            <legend>Pour contacter votre webmaster</legend>
+                            <div class="row">
+                                <div class="six columns">
+                                    <label for="exampleEmailInput">Votre Adresse Mail</label>
+                                    <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+                                </div>
+                                <div class="six columns">
+                                    <label for="exampleRecipientInput">Raison du Contact</label>
+                                    <select class="u-full-width" id="exampleRecipientInput">
+                                        <option value="Option 1">Questions</option>
+                                        <option value="Option 2">Problème</option>
+                                        <option value="Option 3">Demande de RDV</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="exampleMessage">Message</label>
+                            <textarea class="u-full-width" placeholder="Je désire …" id="exampleMessage"></textarea>
+                            <label class="example-send-yourself-copy">
+                                <input type="checkbox">
+                                <span class="label-body">Envoi d'une copie</span>
+                            </label>
+                            <input class="button-primary" type="submit" value="Envoyer">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="footer text-center">
+                <hr>
+                &copy; JDCV - 2015 - designed <a href="#">Delicya</a>
+            </div>
+        </div>
+    </body>
+</html>
