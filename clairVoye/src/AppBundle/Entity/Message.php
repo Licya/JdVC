@@ -39,7 +39,7 @@ class Message
     /**
      * @var boolean
      *
-     * @ORM\Column(name="published", type="boolean")
+     * @ORM\Column(name="published", type="boolean", nullable=true)
      */
     private $published;
 
@@ -55,6 +55,11 @@ class Message
      * @ORM\ManyToOne(targetEntity="Person", inversedBy="messages")
      */
     private $person;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="GoldBook", inversedBy="messages")
+     */
+    private $goldBooks;
 
     /**
      * Get id
@@ -185,5 +190,46 @@ class Message
     public function getPerson()
     {
         return $this->person;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->goldBooks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add goldBook
+     *
+     * @param \AppBundle\Entity\GoldBook $goldBook
+     *
+     * @return Message
+     */
+    public function addGoldBook(\AppBundle\Entity\GoldBook $goldBook)
+    {
+        $this->goldBooks[] = $goldBook;
+
+        return $this;
+    }
+
+    /**
+     * Remove goldBook
+     *
+     * @param \AppBundle\Entity\GoldBook $goldBook
+     */
+    public function removeGoldBook(\AppBundle\Entity\GoldBook $goldBook)
+    {
+        $this->goldBooks->removeElement($goldBook);
+    }
+
+    /**
+     * Get goldBooks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGoldBooks()
+    {
+        return $this->goldBooks;
     }
 }
