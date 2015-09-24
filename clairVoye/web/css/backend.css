@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 sept. 2015, 10:44:19
+    Author     : Licya
+*/
+
+li{list-style: none;}
+a{text-decoration: none;}
+img{
+    width: 20px;
+    opacity: 0.6;}
+img:hover{opacity: 1;}
+/**
+Buttons
+---
+*/
+
+//.button{ background-color: #1EAEDB;}
+
+/**
+Fonts
+--------------------------------------------------------------------------------
+*/
+.text-center{text-align: center;}
+.text-justify{text-align: justify;}
+
+/**
+Header
+--------------------------------------------------------------------------------
+*/
+.header{padding-top: 15px;}
+
+/**
+Nvigation
+--------------------------------------------------------------------------------
+*/
+
+/**
+Content
+--------------------------------------------------------------------------------
+*/
+
+/**
+Footer
+--------------------------------------------------------------------------------
+*/
+
+/**
+
+--------------------------------------------------------------------------------
+*/
