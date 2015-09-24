@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Message
 {
+
     /**
      * @var integer
      *
@@ -49,6 +50,11 @@ class Message
      */
     private $created;
 
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Person", inversedBy="messages")
+     */
+    private $person;
 
     /**
      * Get id
@@ -154,5 +160,30 @@ class Message
     public function getCreated()
     {
         return $this->created;
+    }
+
+
+    /**
+     * Set person
+     *
+     * @param \AppBundle\Entity\Person $person
+     *
+     * @return Message
+     */
+    public function setPerson(\AppBundle\Entity\Person $person = null)
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    /**
+     * Get person
+     *
+     * @return \AppBundle\Entity\Person
+     */
+    public function getPerson()
+    {
+        return $this->person;
     }
 }

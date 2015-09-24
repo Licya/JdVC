@@ -34,6 +34,13 @@ class Person
      * @ORM\Column(name="mail", type="string", length=255)
      */
     private $mail;
+    
+    /**
+     *
+     * @var type 
+     *  * @ORM\OneToMany(targetEntity="Message", mappedBy="person")
+     */
+    private $messages;
 
 
     /**
@@ -94,4 +101,3 @@ class Person
         return $this->mail;
     }
 }
-

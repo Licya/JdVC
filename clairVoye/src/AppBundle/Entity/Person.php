@@ -34,6 +34,13 @@ class Person
      * @ORM\Column(name="mail", type="string", length=255)
      */
     private $mail;
+    
+    /**
+     *
+     * @var type 
+     *  * @ORM\OneToMany(targetEntity="Message", mappedBy="person")
+     */
+    private $messages;
 
 
     /**
@@ -92,5 +99,46 @@ class Person
     public function getMail()
     {
         return $this->mail;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add message
+     *
+     * @param \AppBundle\Entity\Message $message
+     *
+     * @return Person
+     */
+    public function addMessage(\AppBundle\Entity\Message $message)
+    {
+        $this->messages[] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Remove message
+     *
+     * @param \AppBundle\Entity\Message $message
+     */
+    public function removeMessage(\AppBundle\Entity\Message $message)
+    {
+        $this->messages->removeElement($message);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }
