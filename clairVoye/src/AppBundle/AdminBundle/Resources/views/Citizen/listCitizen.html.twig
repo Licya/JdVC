@@ -1,19 +1,27 @@
 {# src/AppBundle/AdminBundle/Resources/views/Default/listCitizen#}
+{% extends '::base.html.twig' %}
+{% block pagetitle %}<h1>Citations</h1>{% endblock %}
 {% block bodyContent %} 
-    <table class="u-full-width" style="border: 1px solid black;">
+    {#{% for Citizen in citizens %}
+        <p class='text-justify'>&OpenCurlyDoubleQuote;{{Citizen.citizen}}&CloseCurlyDoubleQuote;</p>
+        <em class='u-pull-right'>{{Citizen.author}}</em>
+        <p class='text-center'>***</p>
+    {% endfor %}#}
+    <table>
         <thead>
-            <tr>
-                <th>Citation</th>
+            <tr>               
                 <th>Auteur</th>
+                <th>Citation</th>
                 <th>Publiée</th>
                 <th>Position</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for Citizen in citizens%}
-                <tr>
-                    <td>{{Citizen.citizen}}</td>
+                <tr>                   
                     <td>{{Citizen.author}}</td>
+                    <td>&OpenCurlyDoubleQuote;{{Citizen.citizen}}&CloseCurlyDoubleQuote;</td>
                     <td>{%if Citizen.published == 1%}
                         oui
                     {%else%}
@@ -30,12 +38,12 @@
                                             {'position':Citizen.position}
                            )}}">
                                 <a href="">
-                                <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier" style="width:20%;"/>
-                            </a>
-                            &nbsp;
-                            <a {#href="{{ path('admin_category_delete',{'id' : Citizen.id})}}"#}>
-                                <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer" style="width:20%;"/>
-                            </a>
+                                    <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier"/>
+                                </a>
+                                &nbsp;
+                                <a href="{#{{ path('admin_category_delete',{'id' : Citizen.id})}}#}">
+                                    <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer"/>
+                                </a>
                         </td>
                     </tr>
                 </tbody>

@@ -1,49 +1,14 @@
 {# src/AppBundle/AdminBundle/Resources/views/Default/listMessage#}
+{% extends '::base.html.twig' %}
+{% block pagetitle %}<h1>Livre d'Or</h1>{% endblock %}
 {% block bodyContent %} 
-    <table class="u-full-width" style="border: 1px solid black;">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Texte</th>
-                <th>Ecrit par</th>
-                <th>Publiée</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for Message in message%}
-                <tr>
-                    <td>{{Message.title}}</td>
-                    <td>{{Message.texte}}</td>
-                    {#<td>{{Message.person}}</td>#}
-                    <td>{%if Message.published == 1%}
-                        oui
-                    {%else%}
-                        non
-                        {%endif%}
-                        </td>
-                        {#<td>{{Message.goldBooks}}</td>#}
-                        <td>
-                            <a  href="{{ path('app_bundle_admin_message_home',
-                                            {'id' : Message.id},
-                                            {'title': Message.title},
-                                            {'texte': Message.texte},
-                                            {'person':Message.person},
-                                            {'published':Message.published},
-                                            {'goldBooks':Message.goldBooks}
-                           )}}">
-                                <a href="">
-                                    <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier" style="width:20%;"/>
-                                </a>
-                                &nbsp;
-                                <a {#href="{{ path('admin_category_delete',{'id' : Citizen.id})}}"#}>
-                                    <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer" style="width:20%;"/>
-                                </a>
-                        </td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-                </table>
-                {% endblock %}
-                    {% block addBtn %} 
-                        <a class="button" id="btn_add" href="{#{{ path('admin_category_add')}}#}">Ajouter une Citation</a>
-                    {% endblock %}
+    {% for Message in message %}
+        {%if Message.published == 1%}
+            <p class='text-justify'>{{Message.texte}}</p>
+            <em class='u-pull-right'>{{Message.person.lastname}}</em><br>
+            <p class='text-center'>***</p>
+        {%else%}
+            {# mettre valeur par défaut #}
+        {%endif%}
+    {% endfor %}
+{% endblock %}

@@ -1,13 +1,70 @@
 <!DOCTYPE html>
+{# app/Resources/views/base.html.twig #}
+{# app/Resources/views/default/base.html.twig #}
+<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block meta %}
+            <meta http-quiv="Content-Type" content=" text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+        <title>{% block title %}Index Category{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('/css/normalize.css')}}" type="text/css" rel="stylesheet"/>         
+            <link href="{{ asset('/css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('/css/backend.css')}}" type="text/css" rel="stylesheet"/>
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+        {% block header %}
+            <div class="container">
+                <div class="header">
+                    <div class="row">
+                        <div class="four columns">
+                            <h4>Espace Administration</h4>
+                        </div>
+                        <div class="eight columns text-center">
+                            <h5 class="u-pull-right"><a href="#">Deconnexion</a></h5>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            {% endblock %}
+            {% block content %}
+                <div class="row">
+                    <div class="four columns">
+                        <div class="navigation">
+                            <ul>
+                                <li><a class="button u-full-width" href="{#{{ path('') }}#}">Home</a></li>
+                                <li><a class="button u-full-width" href="{{ path('app_bundle_admin_person_home') }}">Témoignages</a></li>
+                                <li><a class="button u-full-width" href="{{ path('app_bundle_admin_citizen_home') }}">Citations</a></li>
+                                <li><a class="button u-full-width" href="{{ path('app_bundle_admin_message_home') }}">Livre d'Or</a></li>
+                                <li><a class="button u-full-width" href="{#{{ path('') }}#}">Contact Webmaster</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="eight columns">
+                        <div class="content">
+                            {% for type, flashes in app.session.flashbag.all %}
+                                {% for flash in flashes %}
+                                    <div class="alert alert-{{ type }}">{{ flash }}</div>
+                                {% endfor %}
+                            {% endfor %}
+                            <h3 class="title">{% block pagetitle %} {% endblock %}</h3>
+                        {% block bodyContent %}{% endblock %}
+                        <div id="center_align">{% block addBtn %}{% endblock %}</div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        <div class="footer text-center">
+            <hr>
+            &copy; JDCV - 2015 - designed <a href="#">Delicya</a>
+        </div>
+    </div>
+    {% block javascripts %}
+        <script src="{{ asset('js/jquery-1.11.2.min.js')}}" type="text/javascript"></script>
+    {% endblock %}
+</body>
 </html>

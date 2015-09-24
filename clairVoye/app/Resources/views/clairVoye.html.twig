@@ -1,0 +1,79 @@
+{# app/Resources/views/clairVoye.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block meta %}
+            <meta http-quiv="Content-Type" content=" text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}           
+            <link href="{{ asset('css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('css/normalize.css')}}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('css/frontend.css')}}" type="text/css" rel="stylesheet"/>
+           {# <link href="{{ asset('css/style.css')}}" type="text/css" rel="stylesheet"/> link used for toggle menu#}
+            <link href="{{ asset('http://fonts.googleapis.com/css?family=Courgette')}}" rel='stylesheet' type='text/css'>
+        {% endblock %}
+    </head>
+    <body>       
+        <div class="{% block image %} {% endblock %}">
+            <div class="container" id="container">
+                {% block header %}
+                    <div class="row">
+                        <div class="four columns">
+                            <a href="{{ path('homepage') }}">
+                            <img id="logo" src="{{ asset('images/logo.png') }}" alt="logo"/>
+                            </a>
+                        </div>
+                        <div class="eight columns" id="text_center">
+                    </div>
+                </div>
+                &nbsp;
+            {% endblock %}
+            <div class="row">
+                <div class="four columns">
+                    <a href="{{ path('homepage') }}">
+                    </a>
+                {% block navigation %}{% endblock %}
+            </div>
+            <div class="eight columns">
+            {% block pageTitle %}{% endblock %}
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<div id="footer">
+    <hr>
+    {% block footer %}
+        <div class="row">
+            <div class="four columns">
+                <h6 class='footer_title'>Horaires</h6>
+                Lundi-Jeudi 8h00 - 18h30<br>
+                Vendredi 8h00 - 20h00<br>
+                Cuisine 11h00 - 14h00<br>
+                Dimanche et Jours fériés fermé              
+            </div>
+            <div class="four columns">
+                <h6 class='footer_title'>Nous Contacter</h6>
+                Tél : 027 231 21 15<br>
+                cinfo@trattorie-italia.ch</a>
+            </div>
+            <div class="four columns">
+                <h6 class='footer_title'>Adresse</h6>
+                    Trattorie d'Italia<br>
+                    Centre commercial Coop<br>
+                    Rue de l'Industrie 16<br>
+                    1950 Sion<br>
+            </div>
+        </div>
+            &copy;Trattoria d'Italia-2015 - <a href="{{ path('admin') }}">se connecter</a>
+    {% endblock %}
+</div>
+</div>
+</div>
+    {% block javascripts %}
+        <script src="{{ asset('js/index.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('js/prefixfree.min.js')}}" type="text/javascript"></script>
+    {% endblock %}
+</body>
+</html>

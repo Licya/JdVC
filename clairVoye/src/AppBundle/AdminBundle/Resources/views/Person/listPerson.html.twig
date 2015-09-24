@@ -1,10 +1,15 @@
 {# src/AppBundle/AdminBundle/Resources/views/Default/listPerson#}
+{% extends '::base.html.twig' %}
+{% block pagetitle %}<h1>Témoignages</h1>{% endblock %}
 {% block bodyContent %} 
-    <table class="u-full-width" style="border: 1px solid black;">
+    <table class="u-full-width">
         <thead>
             <tr>
                 <th>Pseudo</th>
                 <th>Mail</th>
+                <th>Message</th>
+                 <th>Publié</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -12,5 +17,24 @@
                 <tr>
                     <td>{{Person.lastname}}</td>
                     <td>{{Person.mail}}</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <a  href="{{ path('app_bundle_admin_person_home',
+                                            {'id' : Person.id},
+                                            {'citizen': Person.lastname},
+                                            {'author': Person.mail}
+                           )}}">
+                            <a href="">
+                                <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier"/>
+                            </a>
+                            &nbsp;
+                            <a {#href="{{ path('admin_category_delete',{'id' : Citizen.id})}}"#}>
+                                <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer"/>
+                            </a>
+                    </td>
+                </tr>
             {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
