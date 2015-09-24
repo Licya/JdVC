@@ -1,0 +1,16 @@
+{# src/AppBundle/AdminBundle/Resources/views/Default/listPerson#}
+{% block bodyContent %} 
+    <table class="u-full-width" style="border: 1px solid black;">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Person in person%}
+                <tr>
+                    <td>{{Person.lastname}}</td>
+                    <td>{{Person.mail}}</td>
+            {% endfor %}
+{% endblock %}

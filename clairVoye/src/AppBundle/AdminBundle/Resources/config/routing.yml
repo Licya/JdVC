@@ -1,3 +1,19 @@
 app_bundle_admin_homepage:
     path:     /hello/{name}
     defaults: { _controller: AppBundleAdminBundle:Default:index }
+    
+app_bundle_admin_citizen_home:
+    path: /admin/citizen
+    defaults: { _controller: AppBundleAdminBundle:Citizen:index }
+    
+app_bundle_admin_message_home:
+    path: /admin/message
+    defaults: { _controller: AppBundleAdminBundle:Message:index }
+    
+app_bundle_admin_person_home:
+    path: /admin/person
+    defaults: { _controller: AppBundleAdminBundle:Person:index }
+    
+app_bundle_admin_goldBook_home:
+    path: /admin/goldBook
+    defaults: { _controller: AppBundleAdminBundle:GoldBook:index }

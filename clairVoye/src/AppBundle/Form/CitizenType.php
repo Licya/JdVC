@@ -15,10 +15,19 @@ class CitizenType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('citizen')
-            ->add('author')
-            ->add('published')
-            ->add('position')
+            ->add('citizen', 'textarea', array(
+                'label'=>'Citation',
+            ))
+            ->add('author','text', array(
+                'label'=>'Auteur',
+            ))
+            ->add('published', 'checkbox', array(
+                'required'=>false,
+                'label'=>'Publiée',
+            ))
+            ->add('position', 'integer', array(
+                'label'=>'Position',
+            ))
         ;
     }
     

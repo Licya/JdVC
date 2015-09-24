@@ -15,9 +15,15 @@ class GoldBookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('published')
-            ->add('messages')
+            ->add('name', 'text', array(
+                'label'=>'Nom',
+            ))
+            ->add('published', 'checkbox', array(
+                'label'=>'Publié',
+            ))
+            ->add('messages', 'textarea', array(
+                'label'=>'Messages'
+            ))
         ;
     }
     

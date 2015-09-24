@@ -15,12 +15,25 @@ class MessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('texte')
-            ->add('published')
-            ->add('created')
-            ->add('person')
-            ->add('goldBooks')
+            ->add('title', 'text', array(
+                'required'=>false,
+                'label'=>'Titre',
+            ))
+            ->add('texte', 'textarea', array(
+                'label'=>'Message',
+            ))
+            ->add('published', 'checkbox', array(
+                'required'=>false,
+                'label'=>'Publié',
+            ))
+            ->add('person', 'entity',array(
+                'class'=>'AppBundle:Person',
+                'porperty'=>'lastname',
+            ))
+            ->add('goldBooks','entity', array(
+                'class'=> 'AppBundle:GoldBook',
+                'porperty'=>'name',
+            ))
         ;
     }
     
