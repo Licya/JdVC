@@ -38,7 +38,7 @@ class Citizen
     /**
      * @var boolean
      *
-     * @ORM\Column(name="published", type="boolean")
+     * @ORM\Column(name="published", type="boolean", nullable=true)
      */
     private $published;
 
