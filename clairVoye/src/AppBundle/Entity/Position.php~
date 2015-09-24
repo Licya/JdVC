@@ -67,28 +67,5 @@ class Position
     {
         return $this->numero;
     }
-
-    /**
-     * Set citizen
-     *
-     * @param \AppBundle\Entity\Citizen $citizen
-     *
-     * @return Position
-     */
-    public function setCitizen(\AppBundle\Entity\Citizen $citizen = null)
-    {
-        $this->citizen = $citizen;
-
-        return $this;
-    }
-
-    /**
-     * Get citizen
-     *
-     * @return \AppBundle\Entity\Citizen
-     */
-    public function getCitizen()
-    {
-        return $this->citizen;
-    }
 }
+

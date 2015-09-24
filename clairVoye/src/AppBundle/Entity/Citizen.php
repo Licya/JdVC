@@ -46,6 +46,7 @@ class Citizen
      * @var integer
      *
      * @ORM\Column(name="position", type="integer")
+     * @ORM\OneToOne(targetEntity="Position", inversedBy="citizen")
      */
     private $position;
 
